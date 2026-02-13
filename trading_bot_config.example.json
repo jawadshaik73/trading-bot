@@ -1,0 +1,9 @@
+{
+  "exchange_mode": "mock",
+  "api_key": "your_api_key_here",
+  "api_secret": "your_api_secret_here",
+  "sandbox_mode": true,
+  "log_level": "INFO",
+  "max_order_quantity": 1000,
+  "min_order_quantity": 0.001
+}
