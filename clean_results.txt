@@ -1,0 +1,36 @@
+
+============================================================
+TRADING BOT - API KEY VALIDATION TEST
+============================================================
+
+Current EXCHANGE_MODE: mock
+Current SANDBOX_MODE: True
+WARNING: Running in MOCK mode (API keys not used locally)
+   API keys will be tested, but the bot is using MockExchange
+
+
+Testing Binance API Keys with CCXT (Sandbox: True)...
+============================================================
+API Key (first 10 chars): p9YdZ1qtVo...
+API Secret (first 10 chars): PzNn5lzyNl...
+============================================================
+Enabling Sandbox Mode (Testnet)...
+
+Test 1: Fetching account balance...
+FAILED: binance testnet/sandbox mode is not supported for futures anymore, please check the deprecation announcement https://t.me/ccxt_announcements/92 and consider using the demo trading instead.
+
+Test 2: Using Binance REST API (TESTNET)...
+============================================================
+FAILED: Status Code 401
+   Response: {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+   Hint: Check 'Enable Futures' in API settings or match Mainnet/Testnet keys.
+
+============================================================
+SUMMARY
+============================================================
+API Keys are NOT WORKING - Likely Causes:
+   1. 'Enable Futures' is NOT checked in Binance API settings (Common!)
+   2. Using Mainnet keys with CCXT_SANDBOX_MODE=True (or vice versa)
+   3. IP address is not whitelisted (if restricted)
+============================================================
+

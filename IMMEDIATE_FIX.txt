@@ -1,0 +1,122 @@
+═══════════════════════════════════════════════════════════════════════
+🔐 YOUR API KEY ISSUE - SOLUTION
+═══════════════════════════════════════════════════════════════════════
+
+STATUS: Your API credentials are NOT whitelisted on Binance
+
+YOUR PUBLIC IP:  157.50.130.184
+REQUIRED ACTION: Add this IP to your Binance API key settings
+
+═══════════════════════════════════════════════════════════════════════
+IMMEDIATE FIX (5 Minutes) - DO THIS NOW
+═══════════════════════════════════════════════════════════════════════
+
+1️⃣ LOGIN TO BINANCE
+   → Go to: https://www.binance.com
+   → Login with your account
+
+2️⃣ OPEN API MANAGEMENT
+   → Click: User Icon (top-right) → Account
+   → Click: API Management
+
+3️⃣ FIND YOUR API KEY
+   → Look for the key that matches the first 15 chars: p9YdZ1qtVofq5bs
+   → Click: "Edit Restrictions"
+
+4️⃣ ADD YOUR IP ADDRESS
+   → Find: "IP access restrictions"
+   → Current setting: Probably "Unrestricted"
+   
+   RECOMMENDED: Change to "Restrict access to trusted IPs only"
+   → Click: "Add IP" (or "Add New IP")
+   → Enter: 157.50.130.184/32
+   → Click: "Confirm"
+   
+   OR (if you prefer maximum access, less secure):
+   → Keep "Unrestricted" setting
+   → Just make sure trading permissions are enabled
+
+5️⃣ SAVE CHANGES
+   → Click: "Save" or "Confirm"
+   → Wait 2-3 minutes for Binance to update
+
+6️⃣ TEST YOUR API
+   → Go back to terminal
+   → Run: python test_api_keys_advanced.py
+   → Should see: ✅ SUCCESS! API Key is VALID
+
+═══════════════════════════════════════════════════════════════════════
+IF YOU DON'T WANT TO WAIT - QUICK ALTERNATIVE
+═══════════════════════════════════════════════════════════════════════
+
+Use MOCK Mode right now (No API key needed):
+
+1. Change .env:
+   EXCHANGE_MODE=mock
+
+2. Run bot:
+   python main.py test
+
+This works completely offline for testing! After you fix the IP
+restriction on Binance, you can switch back to CCXT mode.
+
+═══════════════════════════════════════════════════════════════════════
+VERIFY YOUR CHANGES
+═══════════════════════════════════════════════════════════════════════
+
+After adding the IP restriction, test with:
+
+   python test_api_keys_advanced.py
+
+Expected successful output:
+   ✅ SUCCESS! API Key is VALID and WORKING!
+   ✅ Account Type: FUTURES
+   ✅ Can Trade: True
+
+═══════════════════════════════════════════════════════════════════════
+NEXT STEPS (After API is working)
+═══════════════════════════════════════════════════════════════════════
+
+1. Edit .env:
+   Change: EXCHANGE_MODE=mock
+   To:     EXCHANGE_MODE=ccxt
+
+2. Start the bot:
+   python main.py market
+
+3. Test trading:
+   python cli_modern.py balance
+
+═══════════════════════════════════════════════════════════════════════
+NEED HELP? TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════
+
+❌ "Still getting -2015 error after adding IP?"
+   → Wait 10+ minutes for Binance server update
+   → Verify you entered the IP correctly (157.50.130.184/32)
+   → Check your IP didn't change (run: python test_api_keys_advanced.py again)
+
+❌ "Not sure which API key to edit?"
+   → Use the first 15 chars as reference: p9YdZ1qtVofq5bs
+   → Or label when in doubt and look for "TradingBot" label
+
+❌ "Don't want to expose API key online?"
+   → This is understandable! Use MOCK mode for all development
+   → Only enable API access when you need live trading
+
+═══════════════════════════════════════════════════════════════════════
+SECURITY NOTE
+═══════════════════════════════════════════════════════════════════════
+
+Your API key is EXPOSED in the .env file. If you:
+- Have real funds in this Binance account
+- Plan to commit this to version control
+- Share this computer with others
+
+ACTIONS RECOMMENDED:
+1. Create a NEW API key JUST for this bot
+2. Keep the key/secret ONLY in .env
+3. Add .env to .gitignore
+4. Consider API key expiry/rotation policies
+
+═══════════════════════════════════════════════════════════════════════

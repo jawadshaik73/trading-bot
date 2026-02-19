@@ -1,0 +1,77 @@
+📌 QUICK ACTION PLAN - FIX YOUR API KEY
+═══════════════════════════════════════════════════════════════════════
+
+⚠️  URGENT: Your API key will be DELETED by Binance within 24 hours
+           if you don't fix the IP restriction!
+
+═══════════════════════════════════════════════════════════════════════
+DO THIS NOW (5 minutes)
+═══════════════════════════════════════════════════════════════════════
+
+1️⃣  FIND YOUR PUBLIC IP
+   → Go to: https://www.ipchicken.com/
+   → Copy the IP address (e.g., 221.120.50.100)
+
+2️⃣  FIX BINANCE API SETTINGS
+   → Go to: https://www.binance.com/en/usercenter/settings/api-management
+   → Find: "jawad123" API key
+   → Click: "Edit Restrictions"
+   → Change: "Unrestricted" → "Restrict access to trusted IPs"
+   → Add your IP from step 1 (include /32 at the end)
+   → Save & Confirm
+
+3️⃣  TEST THE API KEY
+   → Run: python test_api_keys.py
+   → Should show: ✅ SUCCESS: API keys are WORKING!
+
+4️⃣  UPDATE YOUR .ENV
+   → Change: EXCHANGE_MODE=mock  →  EXCHANGE_MODE=ccxt
+   → Save
+
+5️⃣  START THE BOT
+   → Run: python main.py market
+
+═══════════════════════════════════════════════════════════════════════
+YOUR API KEY INFO
+═══════════════════════════════════════════════════════════════════════
+
+API Key:        u3qx9E414tQMNeKOy6b3zc3tsssSYtdwzMnbkb7DkC231oyWSROiAfdCS7a8OjJ3
+API Label:      jawad123
+Current Status: ⚠️  UNRESTRICTED (Will be deleted!)
+Permissions:    ✅ Reading, Trading, Withdrawals
+Required Action: Add IP restriction
+
+═══════════════════════════════════════════════════════════════════════
+HELPFUL COMMANDS
+═══════════════════════════════════════════════════════════════════════
+
+View this summary:
+   type API_ACTION_PLAN.txt
+
+View IP fix guide:
+   python FIX_IP_RESTRICTION.py
+
+View detailed setup:
+   python SETUP_API_KEY.py
+
+Test API key:
+   python test_api_keys.py
+
+Start bot (after fixing):
+   python main.py market
+
+═══════════════════════════════════════════════════════════════════════
+WHAT IF YOU DON'T HAVE IP YET?
+═══════════════════════════════════════════════════════════════════════
+
+If you can't access ipchicken.com, use Testnet instead:
+
+1. Go to: https://testnet.binancefuture.com
+2. Create NEW API key with:
+   ✅ Spot & Margin Trading (enabled)
+   ✅ IP Restriction: Unrestricted (OK on testnet)
+3. Update .env with testnet keys
+4. Run: python test_api_keys.py
+5. Run: python main.py market
+
+═══════════════════════════════════════════════════════════════════════

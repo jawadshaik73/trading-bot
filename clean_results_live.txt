@@ -1,0 +1,202 @@
+
+============================================================
+TRADING BOT - API KEY VALIDATION TEST
+============================================================
+
+Current EXCHANGE_MODE: mock
+Current SANDBOX_MODE: False
+WARNING: Running in MOCK mode (API keys not used locally)
+   API keys will be tested, but the bot is using MockExchange
+
+
+Testing Binance API Keys with CCXT (Sandbox: False)...
+============================================================
+API Key (first 10 chars): p9YdZ1qtVo...
+API Secret (first 10 chars): PzNn5lzyNl...
+============================================================
+Using LIVE Mode (Mainnet)...
+
+Test 1: Fetching account balance...
+FAILED: binance {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+
+Issue: Invalid API-key, IP, or permissions for action (Binance -2015)
+   Likely causes and fixes:
+   1) IP restriction: If your key has unrestricted IP access AND trading/withdrawal permissions,
+      Binance may automatically delete the key. Fix: Add your public IP to the key's IP whitelist.
+python : Traceback (most 
+recent call last):
+At line:1 char:1
++ python test_api_keys.py > 
+test_results_live.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Traceba  
+  ck (most recent call las   
+ t)::String) [], RemoteEx    
+ception
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+ase\exchange.py", line 614, 
+in fetch
+    
+response.raise_for_status()
+    
+~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\reques
+ts\models.py", line 1021, in 
+raise_for_status
+    raise 
+HTTPError(http_error_msg, 
+response=self)
+requests.exceptions.HTTPError
+: 401 Client Error: 
+Unauthorized for url: https:/
+/fapi.binance.com/fapi/v3/acc
+ount?timestamp=1771474909859&
+recvWindow=10000&signature=7f
+e0cc93e77f8930c65d7250a8b927b
+70af1d98c45f235b83e0308e995b4
+da76
+
+During handling of the above 
+exception, another exception 
+occurred:
+
+Traceback (most recent call 
+last):
+  File "C:\Users\jawad\Downlo
+ads\trading-bot\test_api_keys
+.py", line 53, in 
+test_ccxt_api
+    balance = 
+exchange.fetch_balance()
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+inance.py", line 3696, in 
+fetch_balance
+    response = self.fapiPriva
+teV3GetAccount(params)
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+ase\types.py", line 35, in 
+unbound_method
+    return 
+_self.request(self.path, 
+self.api, self.method, 
+params, config=self.config)
+           ~~~~~~~~~~~~~^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+inance.py", line 11586, in 
+request
+    response = 
+self.fetch2(path, api, 
+method, params, headers, 
+body, config)
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+ase\exchange.py", line 5030, 
+in fetch2
+    raise e
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+ase\exchange.py", line 5018, 
+in fetch2
+    return 
+self.fetch(request['url'], 
+request['method'], 
+request['headers'], 
+request['body'])
+           ~~~~~~~~~~^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+ase\exchange.py", line 630, 
+in fetch
+    
+skip_further_error_handling 
+= self.handle_errors(http_sta
+tus_code, http_status_text, 
+url, method, headers, 
+http_response, 
+json_response, 
+request_headers, 
+request_body)
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+inance.py", line 11554, in 
+handle_errors
+    self.throw_exactly_matche
+d_exception(self.exceptions['
+exact'], error, feedback)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\site-packages\ccxt\b
+ase\exchange.py", line 5435, 
+in throw_exactly_matched_exce
+ption
+    raise 
+exact[string](message)
+ccxt.base.errors.Authenticati
+onError: binance 
+{"code":-2015,"msg":"Invalid 
+API-key, IP, or permissions 
+for action"}
+
+During handling of the above 
+exception, another exception 
+occurred:
+
+Traceback (most recent call 
+last):
+  File "C:\Users\jawad\Downlo
+ads\trading-bot\test_api_keys
+.py", line 186, in <module>
+    ccxt_result = 
+test_ccxt_api()
+  File "C:\Users\jawad\Downlo
+ads\trading-bot\test_api_keys
+.py", line 79, in 
+test_ccxt_api
+    print("      \u2192 See: 
+python FIX_IP_RESTRICTION.py 
+for step-by-step guidance")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jawad\AppDat
+a\Local\Programs\Python\Pytho
+n313\Lib\encodings\cp1252.py"
+, line 19, in encode
+    return codecs.charmap_enc
+ode(input,self.errors,encodin
+g_table)[0]
+           ~~~~~~~~~~~~~~~~~~
+~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't encode 
+character '\u2192' in 
+position 6: character maps 
+to <undefined>
